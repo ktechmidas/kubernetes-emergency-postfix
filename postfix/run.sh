@@ -1,5 +1,10 @@
 #!/bin/bash
+
+
+touch /var/log/messages
+ln -sf /proc/1/fd/1 /var/log/messages
 syslogd
+
 mkdir /var/spool/virtualmailboxes/
 echo "mail.$DOMAIN" > /etc/hostname
 echo "127.0.0.2 mail.$DOMAIN" >> /etc/hosts
