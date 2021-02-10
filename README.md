@@ -19,8 +19,10 @@ The container takes the following environment vars:
 * Initial User
 * Initial Password
 
-To add more users you'll need to either edit run.sh or add them using the following sqlite command on the container
+To add more users you'll need to either edit run.sh or add them using the following sqlite command on the container (you'll have to go into the container first, see below for the exec command)
 
+    sqlite3 /etc/postfix/postfix.sqlite
+    
     INSERT INTO mailbox ( username, password, name, maildir, domain, local_part ) VALUES ( '$NAME@$DOMAIN', '$PASS', '$NAME', '$DOMAIN/$NAME@$DOMAIN/', '$DOMAIN', '$NAME' );
 
 Obviously remember to replace the vars...
